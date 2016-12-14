@@ -2,6 +2,11 @@
 #include<pthread.h>
 #include<stdlib.h>
 
+//Manvir Grewal : 10193283
+//Aiden Polese : 10197342
+//Kathleen Abols : 10179548
+//Lianne Orlowski : 10204124
+
 int main(void)
 {
 	extern char *race1 = "|->                                        |"; //40 spaces after the > 
