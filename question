@@ -1,0 +1,57 @@
+#include<stdio.h>
+#include<pthread.h>
+#include<stdlib.h>
+
+int main(void)
+{
+	extern char *race1 = "|->                                        |"; //40 spaces after the > 
+	extern char *race2 = "|->                                        |"; 
+	extern char *race3 = "|->                                        |"; 
+	
+	extern int h ,t; 
+	extern int ctr1,ctr2,ctr3,ctr4;
+	ctr1 = ctr2 = ctr3 = ctr4 = 0; 
+
+
+	void * race(void *threadid) {
+		int input; 
+		if (t == 1) {
+			scanf ("%d", input) 
+			if (input == 1) {
+				race1[ctr1] = " "; 
+				race1[ctr1 +1] = "|";
+				race1[ctr1 +2] = "-";
+				race1[ctr1 +3] = ">"; 
+				ctr1 ++;
+			}
+		}
+		else if (t == 2) { 
+			race2[ctr2] = " "; 
+			race2[ctr2 +1] = "|";
+			race2[ctr2 +2] = "-";
+			race2[ctr2 +3] = ">"; 
+			ctr2 ++;
+			sleep(1);
+		}
+		else {
+			race3[ctr3] = " "; 
+			race3[ctr3 +1] = "|";
+			race3[ctr3 +2] = "-";
+			race3[ctr3 +3] = ">"; 
+			ctr3 ++;
+			sleep(rand()); 
+			
+		}
+	
+		if (ctr1 > 39 || ctr2 > 39 || ctr3 > 39 || ctr4 > 39) {
+			void pthread_exit(void *value_ptr); 
+		}
+	}
+
+	pthread_t threads[3];
+	for (t = 0; t < 3; t++) {
+		h = pthread_create(threads + t, NULL, race, (void *) t )
+	
+	}
+    return 0;
+}
